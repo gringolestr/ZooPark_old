@@ -1,10 +1,8 @@
 package ZooPark;
 
-import sun.font.TrueTypeFont;
-
 import static ZooPark.AnimalType.PREDATOR;
 
-public class Tigr extends AnimalPredator {
+public class Lion extends AnimalPredator {
 
     public String walk() {
         return isWalker;
@@ -15,8 +13,8 @@ public class Tigr extends AnimalPredator {
     }
 
 
-    private String isWalker = "Тигр Быстро Бегает";
-    private String isVoicer = "Тигр Рычит";
+    private String isWalker = "Быстро Бегает";
+    private String isVoicer = "Рычит";
 
 
     public String getIsWalker() {
@@ -27,9 +25,9 @@ public class Tigr extends AnimalPredator {
         return isVoicer;
     }
 
-    public Tigr (){
-    name = "Тигр";
-    weight = 150;
+    public Lion(){
+    name = "Лев";
+    weight = 180;
     isMale = true;
     isPredator = PREDATOR;
     }

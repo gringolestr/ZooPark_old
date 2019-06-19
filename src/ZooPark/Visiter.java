@@ -1,21 +1,43 @@
 package ZooPark;
 
+import static ZooPark.AnimalType.PREDATOR;
+
 public  class Visiter extends Person{
 
     public String walk() {
-        return "Прогуливается медленным шагом";
+        return isWalker;
     }
 
     public String speak() {
-        return "Разговаривает по телефону";
+        return isSpeaker;
     }
 
     public String observe() {
-        return "Наблюдает за животными";
+        return Observer;
     }
 
+    private String isWalker = "Посетитель Прогуливается медленным шагом";
+    private String isSpeaker = "Посетитель Разговаривает по телефону";
+    private String Observer = "Посетитель Наблюдает за животными";
 
-    public Visiter(String name, int weight, boolean isMale, boolean isPredator, String isWalker, String isSpeaker, String isObserver) {
-        super(name, weight, isMale, isPredator, isWalker, isSpeaker, isObserver);
+    public String getIsWalker() {
+        return isWalker;
     }
+
+    public String getIsSpeaker() {
+        return isSpeaker;
+    }
+
+    public String getObserver() {
+        return Observer;
+    }
+
+    public Visiter (){
+        name = "Василий";
+        position = "Посетитель";
+        weight = 80;
+        isMale = true;
+        isPredator = PREDATOR;
+    }
+
 }

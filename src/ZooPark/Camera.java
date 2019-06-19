@@ -1,9 +1,10 @@
 package ZooPark;
 
-public abstract class Camera implements Observer {
+public class Camera implements Observer {
 
-//    public void observe() {
-//
-//    }
+    private String isObserver = "Камера Снимает посетителей";
 
+    public String observe() {
+        return isObserver;
+    }
 }

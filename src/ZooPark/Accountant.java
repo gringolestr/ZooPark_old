@@ -1,38 +1,58 @@
 package ZooPark;
 
+import java.util.List;
+
+import static ZooPark.AnimalType.HERBIVORE;
+
+import static ZooPark.AnimalType.PREDATOR;
+
 public class Accountant extends Person{
 
-    public String walk() {
-        return "Прогуливается";
-    }
+    public String walk() { return isWalker; }
 
     public String speak() {
-        return "Разговаривает c подругой";
+        return isSpeaker;
     }
 
     public String observe() {
-        return "Наблюдает за животными";
+        return Observer;
     }
 
-    public Accountant(String name, int weight, boolean isMale, boolean isPredator, String isWalker, String isSpeaker, String isObserver) {
-        super(name, weight, isMale, isPredator, isWalker, isSpeaker, isObserver);
+    private String isWalker = "Прогуливается";
+    private String isSpeaker = "Разговаривает c подругой";
+    private String Observer= "Наблюдает за животными";
+
+    public String getIsWalker() {
+        return isWalker;
+    }
+
+    public String getIsSpeaker() {
+        return isSpeaker;
+    }
+
+    public String getObserver() {
+        return Observer;
     }
 
 
+    public void getBalance (List<Animal> animals) {
 
-    public static void getBalance (Animal[] animals) {
+        if (animals.get(0).isPredator == PREDATOR) {
 
-        Zoo zoo = new Zoo();
-
-        for (int i = 0; i < zoo.getPredatorA().getResultP().size(); i++) {
-            System.out.println(zoo.getPredatorA().getResultP().get(i).getName());
-            //System.out.println(predatorA.getResultP().size());
+            System.out.println("В зоопарке Хищных Животных = " + animals.size());
         }
 
-        for (int i = 0; i < zoo.getherbivoresA().getResultH().size(); i++) {
-            System.out.println(zoo.getherbivoresA().getResultH().get(i).getName());
-        }
+        if (animals.get(0).isPredator == HERBIVORE) {
 
+            System.out.println("В зоопарке Тровоядных Животных = " + animals.size());
+        }
     }
 
+    public Accountant (){
+        name = "Елена";
+        position = "Бухгалтер";
+        weight = 66;
+        isMale = false;
+        isPredator = PREDATOR;
+    }
 }

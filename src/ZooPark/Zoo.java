@@ -3,11 +3,11 @@ package ZooPark;
 import java.util.ArrayList;
 import java.util.List;
 
-class Zoo<obj> {
+public class Zoo  {
 
-    Cage predatorAnimals = new Cage();
+    Cage<Animal> predatorAnimals = new Cage();
 
-    Cage herbivoresAnimals = new Cage();
+    Cage<Animal> herbivoresAnimals = new Cage();
 
     Man mans = new Man();
 
@@ -16,33 +16,29 @@ class Zoo<obj> {
     private List<Speaker> speakers = new ArrayList<Speaker>();
     private List<Observer> observers = new ArrayList<Observer>();
 
-    ////// Сетеры
 
-    public void setvoicers(Tigr a) {
+    public void addVoicers(Animal a) {
         this.voicers.add(a);
     }
 
-    public void setwalkers(Tigr a) {
+    public void addWalkers(Animal a) {
         this.walkers.add(a);
     }
 
-    public void setvoicers(Zebra a) {
-        this.voicers.add(a);
-    }
 
-    public void setwalkers(Zebra a) {
-        this.walkers.add(a);
-    }
-
-    //
-
-    public void setspeakers(Visiter a) {
+    public void addSpeakers(Person a) {
         this.speakers.add(a);
     }
 
-    public void setwalkers(Visiter a) { this.walkers.add(a); }
+    public void addWalkers(Person a) {
+        this.walkers.add(a);
+    }
 
-    public void setobservers(Visiter a) {
+    public void addObservers(Person a) {
+        this.observers.add(a);
+    }
+
+    public void addObservers(Camera a) {
         this.observers.add(a);
     }
 
@@ -64,7 +60,6 @@ class Zoo<obj> {
         return observers;
     }
 
-
     ///////
 
 
@@ -73,6 +68,9 @@ class Zoo<obj> {
         for (int i = 0; i < walkers.size(); i++) {
             System.out.println(walkers.get(i).walk());
         }
+//        for (Walker a: walkers) {
+//            System.out.println(walkers.toString());
+//        }
     }
 
     public void printALLSpeakers () {
@@ -98,53 +96,43 @@ class Zoo<obj> {
 
     public void printALLAnimals () {
 
-        for (int i = 0; i < predatorAnimals.getResultH().size(); i++) {
-            System.out.println("В этой Клетке Животное "+predatorAnimals.getResultH().get(i).getName() +", Весит "+predatorAnimals.getResultH().get(i).getWeight()+" кг Пол Муж "+predatorAnimals.getResultH().get(i).getIsMale());
+        for (int i = 0; i < predatorAnimals.getResult().size(); i++) {
+            System.out.println("Это клетка Хищников, тут находится "+predatorAnimals.getResult().get(i).getName() +", Весит "+predatorAnimals.getResult().get(i).getWeight()+" кг, Пол Муж "+predatorAnimals.getResult().get(i).getIsMale());
         }
 
-        for (int i = 0; i < predatorAnimals.getResultP().size(); i++) {
-            System.out.println("В этой Клетке Животное "+predatorAnimals.getResultP().get(i).getName() +", Весит "+predatorAnimals.getResultP().get(i).getWeight()+" кг, Пол Муж "+predatorAnimals.getResultP().get(i).getIsMale());
+        for (int i = 0; i < herbivoresAnimals.getResult().size(); i++) {
+            System.out.println("Это клетка Травоядных, тут находится "+herbivoresAnimals.getResult().get(i).getName() +", Весит "+herbivoresAnimals.getResult().get(i).getWeight()+" кг, Пол Муж "+herbivoresAnimals.getResult().get(i).getIsMale());
         }
     }
-
 
     public void printALLperson () {
 
         for (int i = 0; i < mans.getResultM().size(); i++) {
-            System.out.println("В этом Зоопарке "+mans.getResultM().get(i).getName() +", Весит "+mans.getResultM().get(i).getWeight()+", кг Пол Муж "+mans.getResultM().get(i).getIsMale());
+            System.out.println("Гуляет в Зоопарке "+mans.getResultM().get(i).getName() + ", Он  "+mans.getResultM().get(i).getPosition() + ", Весит "+mans.getResultM().get(i).getWeight()+", кг Пол Муж "+mans.getResultM().get(i).getIsMale());
         }
     }
 
-
-    public Cage getPredatorA() {
+    public Cage getPredator() {
         return predatorAnimals;
     }
 
-    public Cage getherbivoresA() {
+    public Cage getHerbivores() {
         return herbivoresAnimals;
     }
 
 
-    public void addAnimal (String name, int weight, boolean isMale, boolean isPredator, String isWalker, String isVoicer) {
-
-        if (isPredator == true) {
-
-            Tigr B = new Tigr(name, weight, isMale, isPredator, isWalker, isVoicer);
-            predatorAnimals.putAnimalP(B);
-
-        } else {
-
-            Zebra B2 = new Zebra(name, weight, isMale, isPredator, isWalker, isVoicer);
-            herbivoresAnimals.putAnimalH(B2);
-
+    public void addAnimal (Animal animal) {
+        if (animal instanceof AnimalPredator) {
+            predatorAnimals.putAnimal(animal);
         }
 
+        if (animal instanceof AnimalHerbivore) {
+            herbivoresAnimals.putAnimal(animal);
+        }
     }
 
-    public void addPerson (String name, int weight, boolean isMale, boolean isPredator, String isWalker, String isSpeaker, String isObserver) {
-
-            Visiter B3 = new Visiter(name, weight, isMale, isPredator, isWalker, isSpeaker, isObserver);
-        mans.putPersonM(B3);
+    public void addPerson (Person person) {
+        mans.putPersonM(person);
     }
 
 }

@@ -2,59 +2,82 @@ package ZooPark;
 
 public class Main {
 
-
     public static void main(String[] args) {
 
         Zoo zoo = new Zoo();
 
-//        String[] observers = { "Смотреть", "Снимать", "Разглядывать", "Видеть" };
+        Zebra zebra = new Zebra();
 
-        zoo.addAnimal("Тигр",100,true,true,"Очень Быстро бегает", "Громко Рычит");
+        zoo.addAnimal(zebra);
 
+        Elephant elephant = new Elephant();
 
-        zoo.addAnimal("Зебра",100,true,true,"Быстро Бегае","Мычит");
-
-        zoo.addPerson("Вася", 70, true, false, "Пешком", "Поет песни","Наблюдает");
-
-        zoo.addPerson("Миша", 60, true, false, "Пешком", "Поет песни","Наблюдает");
-
-        zoo.addPerson("Петя", 65, true, false, "Бегает", "Говорит по телефону","Смотрит");
+        zoo.addAnimal(elephant);
 
 
-        zoo.setvoicers(new Tigr("Тигр",100,true,true,"Очень Быстро бегает", "Громко Рычит"));
+        Tigr tigr = new Tigr();
 
-        zoo.setwalkers(new Tigr("Тигр",100,true,true,"Очень Быстро бегает", "Громко Рычит"));
+        zoo.addAnimal(tigr);
 
-        zoo.setvoicers(new Zebra("Зебра",100,true,false,"Быстро Бегает","Мычит"));
+        Lion lion = new Lion();
 
-        zoo.setwalkers(new Zebra("Зебра",100,true,false,"Быстро Бегает","Мычит"));
+        zoo.addAnimal(lion);
 
 
-        zoo.setwalkers(new Visiter("Вася", 70, true, false, "Пешком", "Поет песни","Наблюдает"));
+        Visiter visiter = new Visiter();
 
-        zoo.setspeakers(new Visiter("Вася", 70, true, false, "Пешком", "Поет песни","Наблюдает"));
+        zoo.addPerson(visiter);
 
-        zoo.setobservers(new Visiter("Вася", 70, true, false, "Пешком", "Поет песни","Наблюдает"));
+        ZooKeeper zookeeper = new ZooKeeper();
+
+        zoo.addPerson(zookeeper);
+
+        Accountant accountant = new Accountant();
+
+        zoo.addPerson(accountant);
+
+        Camera camera = new Camera();
+
+
+
+        zoo.addVoicers(tigr);
+
+        zoo.addWalkers(tigr);
+
+        zoo.addVoicers(zebra);
+
+        zoo.addWalkers(zebra);
+
+
+        zoo.addWalkers(visiter);
+
+        zoo.addSpeakers(visiter);
+
+        zoo.addObservers(visiter);
+
+        zoo.addObservers(camera);
 
         /////////
 
-
         zoo.printALLAnimals();
-
 
 
         zoo.printALLWalkers();
 
         zoo.printALLVoicers();
 
-
-
         zoo.printALLObservers();
 
         zoo.printALLSpeakers();
 
+
         zoo.printALLperson();
 
-    }
 
+        accountant.getBalance(zoo.getPredator().getResult()); // Клетка Одын
+
+        accountant.getBalance(zoo.getHerbivores().getResult()); // Ешо Одна
+
+
+    }
 }

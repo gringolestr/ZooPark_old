@@ -2,7 +2,7 @@ package ZooPark;
 
 import static ZooPark.AnimalType.HERBIVORE;
 
-public class Zebra extends AnimalHerbivore {
+public class Elephant extends AnimalHerbivore {
 
     public String walk() {
         return isWalker;
@@ -13,8 +13,8 @@ public class Zebra extends AnimalHerbivore {
     }
 
 
-    private String isWalker = "Зебра Бегает";
-    private String isVoicer = "Зебра Мычит";
+    private String isWalker = "Слон Шагает";
+    private String isVoicer = "Слон Издает Рев";
 
     public String getIsWalker() {
         return isWalker;
@@ -24,9 +24,9 @@ public class Zebra extends AnimalHerbivore {
         return isVoicer;
     }
 
-    public Zebra (){
-        name = "Зебра";
-        weight = 67;
+    public Elephant(){
+        name = "Слон";
+        weight = 667;
         isMale = false;
         isPredator = HERBIVORE;
     }

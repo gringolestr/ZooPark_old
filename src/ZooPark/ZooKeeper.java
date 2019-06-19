@@ -1,9 +1,45 @@
 package ZooPark;
 
-public abstract class ZooKeeper extends Person {
+import static ZooPark.AnimalType.PREDATOR;
 
+public class ZooKeeper extends Person {
 
-    public ZooKeeper(String name, int weight, boolean isMale, boolean isPredator, String isWalker, String isSpeaker, String isObserver) {
-        super(name, weight, isMale, isPredator, isWalker, isSpeaker, isObserver);
+    public String walk() {
+        return "Прогуливается медленным шагом";
     }
+
+    public String speak() {
+        return "Разговаривает по телефону";
+    }
+
+    public String observe() {
+        return "Наблюдает за животными";
+    }
+
+
+    private String isWalker;
+    private String isSpeaker;
+    private String Observer;
+
+
+    public String getIsWalker() {
+        return isWalker;
+    }
+
+    public String getIsSpeaker() {
+        return isSpeaker;
+    }
+
+    public String getObserver() {
+        return Observer;
+    }
+
+    public ZooKeeper (){
+        name = "Петр";
+        position = "Дворник";
+        weight = 70;
+        isMale = true;
+        isPredator = PREDATOR;
+    }
+
 }
